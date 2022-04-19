@@ -25,3 +25,23 @@ import {
     expect(newState.products.length).toBe(2);
     expect(initialState.products.length).toBe(0);
   });
+// test for updating the categories array
+  test('UPDATE_CATEGORIES', () => {
+    let newState = reducer(initialState, {
+      type: UPDATE_CATEGORIES,
+      categories: [{}, {}]
+    });
+  
+    expect(newState.categories.length).toBe(2);
+    expect(initialState.categories.length).toBe(1);
+  });
+// test for updating the state of currentCategory to a new string value instead of an array
+  test('UPDATE_CURRENT_CATEGORY', () => {
+    let newState = reducer(initialState, {
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: '2'
+    });
+  
+    expect(newState.currentCategory).toBe('2');
+    expect(initialState.currentCategory).toBe('1');
+  });
